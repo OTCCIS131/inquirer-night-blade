@@ -1,0 +1,25 @@
+{
+  "name": "inquirer-night-blade",
+  "version": "1.0.0",
+  "description": "inquirer-night-blade",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OTCCIS131/inquirer-night-blade.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OTCCIS131/inquirer-night-blade/issues"
+  },
+  "homepage": "https://github.com/OTCCIS131/inquirer-night-blade#readme",
+  "dependencies": {
+    "chalk": "^2.1.0",
+    "inquirer": "^3.3.0",
+    "lodash": "^4.17.4",
+    "save": "^2.3.1"
+  }
+}
