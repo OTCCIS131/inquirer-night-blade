@@ -2,13 +2,17 @@ const inquirer = require('inquirer')
 const chalk = require('chalk')
 
 
-console.log('Welcome to Night Blades Pizzaria')
+console.log('Welcome to Night Blades Pizzaria you can call us at 417-545-5377')
 
 var questions = [{
-   message: "Have you ordered through us before?",
+  message: "Have you ordered through us before?",
    name:  'member',
-   type: "list",
+   type: "confirm",
    choices:['yes','no']
+  },{
+    message: "Enter member number if you dont have one just leave blank",
+    name:  'mnumb',
+    type: "password",
   },{
     message: "Address for the order??",
    name:  'address',
@@ -28,26 +32,38 @@ var questions = [{
     message: "How do you want it cut?",
    name:  'cut',
       type: "list",
-   choices:['yes','no']
+   choices:['in a halfmoon','deep','pizza style','squared']
   },{
     message: "Addons?",
    name:  'extras',
-      type: "list",
-   choices:['yes','no']
+      type: 'checkbox',
+   choices:['olives','onions','chopped tomato','anchovies','extra cheese']
+   
  
   }]
 
-inquirer.prompt(questions).then(function({member,address,number,size,cut,extras}){
+inquirer.prompt(questions).then(function({member,mnumb,address,number,size,cut,extras}){
 
-if (member = yes){
-  var questions = [{
-   message: "Enter member number",
-   name:  'mnumb',
-   type: "input",
+  console.log(chalk.greenBright("\n\nSo you want" ,number, size, "pizzas cut",cut, "with", extras,"at", address,"\n\n"))
+
+
+  var confirm = [{
+   message: "is this request correct",
+   name:  'correct',
+   type: "confirm",
+   choices:['yes','no']
    
   }]
 
+
+inquirer.prompt(confirm).then(function({correct}){
+if (correct == true){
+  console.log(chalk.red("your order will be handled"));
 }
-inquirer.prompt(questions).then(function({member,mnumb,address,number,size,cut,extras}){
-console.log(member,mnumb,address,number,size,cut,extras)
-})})
+else {
+  console.log(chalk.blueBright("we apologize for the inconvenience"));
+}
+})
+
+
+})
